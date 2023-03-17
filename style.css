@@ -1,0 +1,107 @@
+body {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	height: 90vh;
+}
+.container table tr td {
+	text-align: center;
+    color: rgb(155, 150, 150);
+}
+.radio_input,.check_input{
+	display: none;
+}
+
+.radio .circle{
+	display: inline-block;
+	position: relative;
+	margin-right: 5px;
+	width: 20px;
+	height: 20px;
+	cursor: pointer;
+	border-radius: 50%;
+	border: 3px solid rgb(114, 114, 114);
+}
+.checkbox .checkmark{
+    display: inline-block;
+	position: relative;
+	margin-right: 5px;
+	width: 20px;
+	height: 20px;
+	cursor: pointer;
+	border: 3px solid rgb(114, 114, 114);
+}
+.radio_input:checked ~ .circle{
+    border: 3px solid rgb(25, 211, 186);
+}
+.check_input:checked ~ .checkmark{
+    background-color: rgb(25, 211, 186);
+    border: 3px solid rgb(25, 211, 186);
+}
+.check_input:checked ~ .checkmark::after {
+	content: "";
+	display: block;
+    color: aliceblue;
+	width: 12px;
+	height: 6px;
+    border-left: 2px solid white;
+    border-bottom: 2px solid white;
+	position: absolute;
+	left: 50%;
+	top: 40%;
+	transform: translate(-50%, -50%) rotate(-45deg);
+}
+.radio_input:checked ~ .circle::after {
+	content: "";
+	display: block;
+	width: 15px;
+	height: 15px;
+	border-radius: 50%;
+	background-color: rgb(25, 211, 186);
+	position: absolute;
+	left: 50%;
+	top: 50%;
+	transform: translate(-50%, -50%);
+}
+.toggle {
+    --width: 45px;
+    --height: calc((var(--width)) / 2);
+    --border-radius: calc(var(--height) / 2);
+  
+    display: inline-block;
+    cursor: pointer;
+  }
+  
+  .toggle__input {
+    display: none;
+  }
+  
+  .toggle__fill {
+    position: relative;
+    width: var(--width);
+    height: var(--height);
+    border-radius: var(--border-radius);
+    background: #a09d9d;
+    transition: background 0.2s;
+  }
+  
+  .toggle__input:checked + .toggle__fill {
+    background: rgb(25, 211, 186);
+  }
+  
+  .toggle__fill::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: var(--height);
+    width: var(--height);
+    background: #ffffff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.25);
+    border-radius: var(--border-radius);
+    transition: transform 0.2s;
+  }
+  
+  .toggle__input:checked ~ .toggle__fill::after {
+    transform: translateX(var(--height));
+  }
